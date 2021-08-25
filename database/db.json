@@ -19,42 +19,14 @@
       "email": "ummae.ha@gmail.com",
       "name": "[기획자] 김양하",
       "imagePath": "https://lh3.googleusercontent.com/a-/AOh14GgNjvW-PSK8WofI2yQbvZDMnrjp8OnPeZugi5d0",
-      "id": 5
+      "id": 2
     },
     {
-      "userId": "108449024264620819194",
-      "email": "ummae.ha@gmail.com",
-      "name": "[기획자] 김양하",
-      "imagePath": "https://lh3.googleusercontent.com/a-/AOh14GgNjvW-PSK8WofI2yQbvZDMnrjp8OnPeZugi5d0",
-      "id": 6
-    },
-    {
-      "userId": "108449024264620819194",
-      "email": "ummae.ha@gmail.com",
-      "name": "[기획자] 김양하",
-      "imagePath": "https://lh3.googleusercontent.com/a-/AOh14GgNjvW-PSK8WofI2yQbvZDMnrjp8OnPeZugi5d0",
-      "id": 7
-    },
-    {
-      "userId": "108449024264620819194",
-      "email": "ummae.ha@gmail.com",
-      "name": "[기획자] 김양하",
-      "imagePath": "https://lh3.googleusercontent.com/a-/AOh14GgNjvW-PSK8WofI2yQbvZDMnrjp8OnPeZugi5d0",
-      "id": 8
-    },
-    {
-      "userId": "116564714223718179785",
-      "email": "173999@jnu.ac.kr",
-      "name": "양하",
-      "imagePath": "https://lh3.googleusercontent.com/a/AATXAJy-pETirSJtqRjksk4Jx3Y9Wr-0UY9zBn_U_y4d",
-      "id": 9
-    },
-    {
-      "userId": "116564714223718179785",
-      "email": "173999@jnu.ac.kr",
-      "name": "양하",
-      "imagePath": "https://lh3.googleusercontent.com/a/AATXAJy-pETirSJtqRjksk4Jx3Y9Wr-0UY9zBn_U_y4d",
-      "id": 10
+      "userId": "107800662477661127698",
+      "email": "175938@jnu.ac.kr",
+      "name": "서영",
+      "imagePath": "https://lh3.googleusercontent.com/a/AATXAJy7VGX6rjdcP9xMMCUYONbEzoepaT32Tn-3QNU",
+      "id": 4
     }
   ],
   "mandals": [
@@ -211,6 +183,24 @@
       ],
       "thumnailPath": "",
       "id": 8
+    },
+    {
+      "userId": "1",
+      "title": "날짜 없는 만다라트",
+      "contents": "실험중",
+      "miniIds": [
+        56,
+        55,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63
+      ],
+      "thumnailPath": "",
+      "id": 9
     }
   ],
   "minimandals": [
@@ -980,13 +970,13 @@
       "id": 45
     },
     {
-      "keyword": "에러 잡고싶다",
+      "keyword": "일찍 자고싶다",
       "goals": [
         "",
         "",
         "",
         "",
-        "에러 잡고싶다",
+        "일찍 자고싶다",
         "",
         "",
         "",
@@ -997,13 +987,13 @@
       "id": 46
     },
     {
-      "keyword": "일찍 자고싶다",
+      "keyword": "에러 잡고싶다",
       "goals": [
         "",
         "",
         "",
         "",
-        "일찍 자고싶다",
+        "에러 잡고싶다",
         "",
         "",
         "",
@@ -1031,13 +1021,13 @@
       "id": 48
     },
     {
-      "keyword": "",
+      "keyword": "배고파!",
       "goals": [
         "",
         "",
         "",
         "",
-        "",
+        "배고파!",
         "",
         "",
         "",
@@ -1131,6 +1121,159 @@
       "mandalId": 8,
       "userId": "1",
       "id": 54
+    },
+    {
+      "keyword": "",
+      "goals": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "mandalId": 9,
+      "userId": "1",
+      "id": 55
+    },
+    {
+      "keyword": "",
+      "goals": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "mandalId": 9,
+      "userId": "1",
+      "id": 56
+    },
+    {
+      "keyword": "",
+      "goals": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "mandalId": 9,
+      "userId": "1",
+      "id": 57
+    },
+    {
+      "keyword": "",
+      "goals": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "mandalId": 9,
+      "userId": "1",
+      "id": 58
+    },
+    {
+      "keyword": "과연..?",
+      "goals": [
+        "",
+        "",
+        "",
+        "",
+        "과연..?",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "mandalId": 9,
+      "userId": "1",
+      "id": 59
+    },
+    {
+      "keyword": "",
+      "goals": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "mandalId": 9,
+      "userId": "1",
+      "id": 60
+    },
+    {
+      "keyword": "",
+      "goals": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "mandalId": 9,
+      "userId": "1",
+      "id": 61
+    },
+    {
+      "keyword": "",
+      "goals": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "mandalId": 9,
+      "userId": "1",
+      "id": 62
+    },
+    {
+      "keyword": "",
+      "goals": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "mandalId": 9,
+      "userId": "1",
+      "id": 63
     }
   ],
   "checklogs": [
@@ -2463,6 +2606,116 @@
         [
           0,
           0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "userId": "1",
+      "mandalId": "8",
+      "id": 13
+    },
+    {
+      "date": "20210826",
+      "year": 2021,
+      "month": 7,
+      "day": 26,
+      "checks": [
+        [
+          0,
+          0,
           0,
           0,
           0,
@@ -2561,8 +2814,118 @@
         ]
       ],
       "userId": "1",
-      "mandalId": "8",
-      "id": 13
+      "mandalId": "1",
+      "id": 14
+    },
+    {
+      "date": "20210826",
+      "year": 2021,
+      "month": 7,
+      "day": 26,
+      "checks": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "userId": "1",
+      "mandalId": "9",
+      "id": 15
     }
   ],
   "lands": [
@@ -2591,6 +2954,21 @@
         }
       ],
       "id": 1
+    },
+    {
+      "userId": 4,
+      "cubes": [],
+      "id": 2
+    },
+    {
+      "userId": 4,
+      "cubes": [],
+      "id": 3
+    },
+    {
+      "userId": 4,
+      "cubes": [],
+      "id": 4
     }
   ]
 }

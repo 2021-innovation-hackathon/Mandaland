@@ -16,8 +16,8 @@ class Mandalart extends React.Component {
     renderDate() {
         if (!this.props.mandal || !this.props.mandal.mandal) return null
         let { startDate, endDate } = this.props.mandal.mandal
-        startDate = startDate.replaceAll("-", ".")
-        endDate = endDate.replaceAll("-", ".")
+        startDate = startDate ? startDate.replaceAll("-", ".") : startDate
+        endDate = endDate ? endDate.replaceAll("-", ".") : endDate
         return (
             <div className="date-container view">
                 <div>{startDate}</div>
@@ -26,7 +26,7 @@ class Mandalart extends React.Component {
             </div>
         )
     }
-    
+
     onCheck = (miniMandalIndex, goalIndex, check) => {
         this.props.log.checks[miniMandalIndex][goalIndex] = check
         this.props.patchLog(miniMandalIndex, goalIndex, check, this.props.log)
@@ -84,7 +84,7 @@ class Mandalart extends React.Component {
     }
 
     render() {
-        console.log(this.props);
+        console.log(this.props)
         return (
             <div>
                 <MandalViewChanger />
