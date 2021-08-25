@@ -1,0 +1,9 @@
+.land-container {
+    transform: translateX(-360px) translateY(-132px);
+}
+
+.land-save-wrapper {
+    position: absolute;
+    right: 100px;
+    z-index: 50;
+}
