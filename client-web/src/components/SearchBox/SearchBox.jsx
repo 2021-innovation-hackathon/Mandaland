@@ -1,19 +1,39 @@
-import React from "react"
-import { Link } from "react-router-dom"
-
+import React, { useEffect } from "react"
+import { connect } from "react-redux"
+import { getUserList } from '../../actions'
 import "./SearchBox.css"
 
-const enterkey = (e) => {
-    if (window.event.keyCode == 13) {
-        // 엔터키가 눌렸을 때 실행할 내용
-        console.log(e.target.value) //input태그에 들어온 내용
-    }
-}   
+  
 const clickSearch = (e) => {
     console.log(e.target.value);
 }
 
-const SearchBox = () => {
+const SearchBox = (props) => {
+    useEffect(()=> {
+        props.getUserList()
+    }, [])
+    console.log(props)
+
+    const enterkey = (e) => {
+        if (window.event.keyCode == 13) {
+            // 엔터키가 눌렸을 때 실행할 내용
+            console.log(e.target.value) //input태그에 들어온 내용
+            window.location.href = `/mandalplan/view/${searchByUsername(e.target.value)}`
+        }
+    } 
+    // const searchByKeyword = (keyword) => {
+    //     let
+    // }
+    const searchByUsername = (username) => {
+        let correspondResult = [];
+        console.log(props.userlist)
+        if(props.userlist != undefined) {
+            correspondResult = props.userlist.filter((ele) => {
+                return ele.name.includes(username)
+            })
+        }
+        return correspondResult[0].id
+    }
     return (
         <div className="inputBoxAlign">
             <div className="inputBoxWrapper">
@@ -28,4 +48,11 @@ const SearchBox = () => {
     )
 }
 
-export default SearchBox
+const mapStateToProps = (state) => {
+    console.log(state)
+    return {
+        userlist:state.userlist.userlist
+    }
+}
+
+export default connect(mapStateToProps, { getUserList })(SearchBox)

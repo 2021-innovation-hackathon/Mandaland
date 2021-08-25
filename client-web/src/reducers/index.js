@@ -5,6 +5,7 @@ import mandalReducers from "./mandalReducers"
 import logReducers from "./logReducers"
 import mandalartsReducers from "./mandalartsReducers"
 import friendinfoReducers from "./friendinfoReducers"
+import userlistReducers from "./userlistReducers"
 
 export default combineReducers({
     user: userReducers,
@@ -13,4 +14,5 @@ export default combineReducers({
     mandalarts: mandalartsReducers,
     form: formReducer,
     friends: friendinfoReducers,
+    userlist: userlistReducers,
 })

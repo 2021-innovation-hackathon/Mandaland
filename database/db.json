@@ -8,18 +8,25 @@
       "id": 1
     },
     {
-      "userId": "108449024264620819194",
-      "email": "ummae.ha@gmail.com",
-      "name": "[기획자] 김양하",
-      "imagePath": "https://lh3.googleusercontent.com/a-/AOh14GgNjvW-PSK8WofI2yQbvZDMnrjp8OnPeZugi5d0",
-      "id": 2
-    },
-    {
       "userId": "10293090293",
       "email": "raya0000@gmail.com",
       "name": "냥하",
       "imagePath": "https://lh3.googleusercontent.com/a-/AOh14GgNjvW-PSK8WofI2yQbvZDMnrjp8OnPeZugi5d0",
       "id": 3
+    },
+    {
+      "userId": "107833160218064945520",
+      "email": "raya000@naver.com",
+      "name": "yasmin",
+      "imagePath": "https://lh3.googleusercontent.com/a/AATXAJyJWjoHULUSrcC-QIl2UoYFYZPfDCag54w0WPbI",
+      "id": 4
+    },
+    {
+      "userId": "108449024264620819194",
+      "email": "ummae.ha@gmail.com",
+      "name": "[기획자] 김양하",
+      "imagePath": "https://lh3.googleusercontent.com/a-/AOh14GgNjvW-PSK8WofI2yQbvZDMnrjp8OnPeZugi5d0",
+      "id": 5
     }
   ],
   "mandals": [

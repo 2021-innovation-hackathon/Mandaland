@@ -53,14 +53,15 @@ app.get("/mandal", async (req, res) => {
         res.status("400").json(err).end()
     }
 })
+
+// USERS
+
 app.get("/mandaluser", async (req, res) => {
     try {
         console.log(`GET /mandals?userId=${req.query.id}`)
         const mandal = await db.get(`/mandals/?userId=${req.query.id}`)
-        // const miniMandals = await db.get(`/minimandals?mandalId=${req.query.id}`)
         const data = {
             mandalarts: mandal.data,
-            // miniMandals: miniMandals.data,
         }
         res.status("200").json(data).end() // 200 == success
     } catch (err) {
@@ -68,6 +69,21 @@ app.get("/mandaluser", async (req, res) => {
         res.status("400").json(err).end()
     }
 })
+
+app.get("/userlist", async (req, res) => {
+    try {
+        console.log(`GET /users`)
+        const userlist = await db.get(`/users`)
+        const data = {
+            userlist: userlist.data,
+        }
+        res.status("200").json(data).end() // 200 == success
+    } catch (err) {
+        console.log(err)
+        res.status("400").json(err).end()
+    }
+})
+
 app.get("/mandalplan/view", async (req, res) => {
     try {
         console.log(`GET /users?userId=${req.query.id}`)
