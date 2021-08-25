@@ -1,6 +1,6 @@
 import server from "../apis/server"
 import history from "../history"
-import { CREATE_LOG, CREATE_MANDAL, EDIT_MANDAL, FETCH_LOG, FETCH_MANDAL, FETCH_MONTH_LOG, PATCH_LOG, SIGN_IN, SIGN_OUT, GET_MANDAL, GET_FRIENDINFO, GET_USERLIST, GET_ALLMANDAL } from "../type"
+import { FETCH_LAND, SAVE_LAND, CREATE_LOG, CREATE_MANDAL, EDIT_MANDAL, FETCH_LOG, FETCH_MANDAL, FETCH_MONTH_LOG, PATCH_LOG, SIGN_IN, SIGN_OUT, GET_MANDAL, GET_FRIENDINFO, GET_USERLIST, GET_ALLMANDAL } from "../type"
 import { getDateString, getYear, getMonthIndex, getDate } from "./getDateString"
 
 // USERS
@@ -13,8 +13,8 @@ export const signIn = (userInfo) => async (dispatch) => {
         name,
         imagePath,
     })
-    localStorage.setItem("id", data[0].id)
-    dispatch({ type: SIGN_IN, payload: data[0] })
+    localStorage.setItem("id", data.id)
+    dispatch({ type: SIGN_IN, payload: data })
 }
 
 export const signOut = () => {
@@ -111,4 +111,22 @@ export const patchLog = (miniMandalIndex, goalIndex, check, state) => async (dis
     checks[miniMandalIndex][goalIndex] = check
     const { data } = await server.put(`/checklogs`, { ...others, checks })
     dispatch({ type: PATCH_LOG, payload: data })
+}
+
+// SCENE
+export const saveLand = (newCubes) => async (dispatch) => {
+    console.log("saveLand request")
+    console.log("new cubes:", newCubes)
+    const userId = localStorage.getItem("id")
+    const { data } = await server.put(`/lands`, { userId, newCubes })
+    console.log(data)
+    dispatch({ type: SAVE_LAND })
+}
+
+export const fetchLand = () => async (dispatch) => {
+    console.log("fetchLand request")
+    const userId = localStorage.getItem("id")
+    const { data } = await server.get(`/lands?userId=${userId}`)
+    console.log(data)
+    dispatch({ type: FETCH_LAND, payload: data })
 }

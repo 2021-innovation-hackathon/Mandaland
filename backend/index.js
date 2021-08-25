@@ -24,11 +24,12 @@ app.post("/login/google", async (req, res) => {
         const { data } = await db.get(`/users?userId=${req.body.userId}`)
         if (data.length > 0) {
             console.log("User exist")
-            res.status("200").json(data).end() // 200 == success
+            res.status("200").json(data[0]).end() // 200 == success
         } else {
             console.log(`New user! Insert ${req.body.name} in users`)
             const { data } = await db.post("/users", req.body)
-            res.status("201").json(data[0]).end() // 201 == created
+            const landResult = await db.post("/lands", { userId: data.id, cubes: [] })
+            res.status("201").json(data).end() // 201 == created
         }
     } catch (err) {
         console.log(err)
@@ -105,7 +106,7 @@ app.get("/mandalplan/view", async (req, res) => {
         console.log(`GET /users?userId=${req.query.id}`)
         const mandal = await db.get(`/users?id=${req.query.id}`)
         // const miniMandals = await db.get(`/minimandals?mandalId=${req.query.id}`)
-        console.log(mandal)
+        // console.log(mandal)
         const data = {
             friends: mandal.data,
             // miniMandals: miniMandals.data,
@@ -208,6 +209,33 @@ app.put("/checklogs", async (req, res) => {
         console.log(`PATCH /checklogs`)
         const { data } = await db.patch(`/checklogs/${req.body.id}`, req.body)
         res.status("200").json(data).end()
+    } catch (err) {
+        console.log(err)
+        res.status("400").json(err).end()
+    }
+})
+
+// LAND
+app.put("/lands", async (req, res) => {
+    try {
+        console.log(`POST /lands`)
+        // const existData = await db.get(`/lands?userId=${req.body.userId}`)
+        // const newData = existData.data[0].cubes.concat(req.body.newCubes)
+        // await db.delete(`/lands?userId=${req.body.userId}`)
+        const { data } = await db.patch(`/lands/${req.body.userId}`, { cubes: req.body.newCubes })
+        res.status("200").json(data).end()
+    } catch (err) {
+        console.log(err)
+        res.status("400").json(err).end()
+    }
+})
+
+app.get("/lands", async (req, res) => {
+    try {
+        console.log(`GET /lands?userId=${req.query.userId}`)
+        const { data } = await db.get(`/lands?userId=${req.query.userId}`)
+        console.log(data[0])
+        res.status("200").json(data[0]).end()
     } catch (err) {
         console.log(err)
         res.status("400").json(err).end()

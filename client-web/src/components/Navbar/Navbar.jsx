@@ -8,10 +8,16 @@ import NavMonthly from "../NavMonthly/NavMonthly"
 class Navbar extends React.Component {
     state = { open: true }
 
-    dropContent = [
-        { dropTitle: "My", dropLink: "/mandalplan" },
-        { dropTitle: "New", dropLink: "/mandalplan/new" },
-    ]
+    getDropContent = () => {
+        let userId
+        if (!this.props.user) userId = ""
+        else userId = this.props.user.id
+        const dropContent = [
+            { dropTitle: "My", dropLink: `/mandalplan/view/${userId}` },
+            { dropTitle: "New", dropLink: "/mandalplan/new" },
+        ]
+        return dropContent
+    }
 
     onToggleClick = () => {
         const state = this.state.open ? false : true
@@ -36,8 +42,8 @@ class Navbar extends React.Component {
                 <div className="wrapNavmenu">
                     <Navlist title="Home" iconPath={imagePaths[0]} open={this.state.open} aLink={tempLink} />
                     <Navlist title="Feed" iconPath={imagePaths[1]} open={this.state.open} aLink={tempLink} />
-                    <Navlist title="Mandalplan" iconPath={imagePaths[2]} open={this.state.open} aLink={"/mandalplan"} dropContent={this.dropContent} />
-                    <Navlist title="Mandaland" iconPath={imagePaths[3]} open={this.state.open} aLink={tempLink} />
+                    <Navlist title="Mandalplan" iconPath={imagePaths[2]} open={this.state.open} aLink={`/mandalplan/view/${this.props.user.id}`} dropContent={this.getDropContent()} />
+                    <Navlist title="Mandaland" iconPath={imagePaths[3]} open={this.state.open} aLink={`/mandaland/${this.props.user.id}`} />
                     <Navlist title="Setting" iconPath={imagePaths[4]} open={this.state.open} aLink={tempLink} />
                 </div>
                 <NavMonthly open={this.state.open} />
