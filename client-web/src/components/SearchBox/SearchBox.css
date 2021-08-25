@@ -1,0 +1,41 @@
+.inputBox {
+    width: 50em;
+    padding: 6px 12px;
+    border-radius: 0px;
+    border: 3px solid #000;
+    padding-left: 15%;
+}
+.inputBoxAlign {
+    display: flex;
+}
+.inputBoxWrapper {
+    display: flex;
+}
+.selectBoxStyle {
+    font-size: 20px;
+    position: relative;
+    left: 5em;
+    top: 14%;
+    height: 70%;
+    border: none;
+}
+.selectBoxStyle::placeholder{
+    font-size: 14px;
+}
+.searchIconStyle {
+    width: 20px;
+    height: 20px;
+    max-width: 20px;
+    max-height: 20px;
+    position: relative;
+    top: 10px;
+    left: -31px;
+    cursor: pointer;
+}
+.searchIconStyle {
+    width: 24px;
+    height: 24px;
+}
+*:focus {
+    outline: none;
+}

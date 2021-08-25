@@ -1,0 +1,42 @@
+.navprofile-container {
+    height: 330px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+    visibility: visible;
+}
+
+.navprofile-container.close {
+    visibility: hidden;
+}
+
+.navprofile {
+    width: 214px;
+    height: 214px;
+    background-color: #fff;
+    border: 4px solid #000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 25px 13px 25px;
+}
+
+.navprofile-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.navprofile-name {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.navprofile-email {
+    margin-top:12px;
+    color: #fff;
+    font-weight: 400;
+}

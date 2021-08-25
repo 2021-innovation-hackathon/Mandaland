@@ -1,0 +1,9 @@
+.feed-title {
+    font-size: 24px;
+    padding: 16px 40px;
+    border: 5px solid #000;
+    margin-bottom: 30px;
+    font-weight: 800;
+    width: fit-content;
+    background: #5ACE95;
+}

@@ -1,0 +1,90 @@
+.keyword-search-container {
+    background-color: #5ace95;
+    border: 4px solid black;
+    box-sizing: border-box;
+    padding: 16px 0 16px 16px;
+    width: 410px;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: 80px;
+}
+
+.search-wrapper {
+    width: 370px;
+    height: 42px;
+    border: 3px solid black;
+    box-sizing: border-box;
+    background-color: white;
+    padding: 5px 10px 5px 5px;
+    display: flex;
+    align-items: center;
+}
+
+.search-wrapper input {
+    width: 315px;
+    height: 100%;
+    /* box-sizing: border-box; */
+    border: none;
+    font-size: 17px;
+}
+
+.search-button {
+    width: 24px;
+    height: 24px;
+}
+
+.keyword-guide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+}
+
+.guide-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.keyword-guide img {
+    width: 122px;
+    height: 103px;
+    padding: 51px;
+}
+
+.keyword-guide .text {
+    font-family: AppleSDGothic;
+    font-weight: 300;
+    font-size: 16px;
+    padding: 5px;
+}
+.keyword-guide .big {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.grid-scroll {
+    overflow-y: scroll;
+    height: 100%;
+}
+
+.mini-column-grid {
+    padding: 19px;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 45px;
+}
+
+.mini-column-grid > .mini-container {
+    border: 3px solid black;
+}
+
+.mini-column-grid .keyword {
+    box-sizing: border-box;
+    border: 3px solid black;
+}
+
+.data-end-padding {
+    height: 120px;
+}

@@ -1,0 +1,58 @@
+form .mandalart-container-wrapper {
+    width: 1232px;
+}
+
+.description-container input {
+    background-color: #ffffff00;
+    font-size: 16px;
+    border: none;
+}
+
+.description-container input::placeholder {
+    color: black;
+    font-weight: 300;
+}
+
+.title input {
+    width: 980px;
+}
+
+.contents input {
+    width: 943px;
+}
+
+form .date-container {
+    left: 1307px;
+}
+
+[type="date"] {
+    background-color: #ffffff00;
+    font-family: AppleSDGothic;
+    font-weight: 500;
+    width: 75px;
+    word-spacing: -3px;
+    border: none;
+}
+
+[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    width: 75px;
+    position: absolute;
+}
+
+.start-date::-webkit-calendar-picker-indicator {
+    left: 9px;
+}
+
+.end-date::-webkit-calendar-picker-indicator {
+    left: 98px;
+}
+
+.mandal-big-grid input {
+    border: none;
+}
+
+input.goal {
+    width: 120px;
+    box-sizing: border-box;
+}

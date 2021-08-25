@@ -1,0 +1,40 @@
+.mandalViewChanger-wrapper {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.mandalViewChanger {
+    border: 4px solid #000;
+    /* width: 375px; */
+    height: 28px;
+    padding: 11px 30px;
+    background-color: #5ace95;
+    display: flex;
+}
+.plannerSelectBox {
+    /* width: 196px; */
+    height: 28px;
+    border: none;
+    font-family: Archivo;
+    font-size: 24px;
+    font-weight: 800;
+    /* top: calc(50% - 13px);
+    position: relative; */
+    background-color: #ffffff00;
+}
+.vertical-devider {
+    width: 2px;
+    margin: 0 30px 0 18px;
+    background-color: black;
+}
+.myText {
+    height: 28px;
+    line-height: 28px;
+    /* border-left: 1px solid #707070; */
+    font-size: 20px;
+    font-weight: 500;
+    /* padding: 0 34px;
+    top: calc(50% - 15px);
+    position: relative;
+    left: 18px; */
+}

@@ -1,0 +1,16 @@
+.logoFontStyle {
+    font-weight: 800;
+    font-size: 22px;
+    color: #000;
+    margin: auto 7px;
+}
+.logo {
+    margin: auto;
+}
+.logo > img {
+    width: 29px;
+    height: 29px;
+}
+.alignStyle {
+    display: flex;
+}

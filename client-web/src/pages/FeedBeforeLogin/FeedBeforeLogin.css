@@ -1,0 +1,38 @@
+.keyword-section,
+.popular-section {
+    margin: 30px 40px;
+}
+.keyword-section {
+    margin-bottom: 72px;
+}
+.keyword-wrapper {
+    height: 220px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 0;
+    border-top: 4px solid #000;
+    border-left: 4px solid #000;
+    box-shadow: 10px 10px 0px  rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+.keyword-wrapper > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 4px solid #000;
+    border-bottom: 4px solid #000;
+    background-color: #FAD83B;
+    font-size: 20px;
+    font-weight: 700;
+}
+.keyword-wrapper > div:hover {
+    background-color: #F06756;
+}
+.keyword-wrapper div {
+    padding: 1rem;
+}
+.userInfoArea {
+    background-color: #5ACE95;
+}

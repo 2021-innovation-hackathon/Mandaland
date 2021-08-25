@@ -1,0 +1,27 @@
+.goal {
+    width: 112px;
+    height: 69px;
+    text-align: center;
+    line-height: 65px;
+
+    background-color: white;
+    box-shadow: 0 0 0 1px black;
+    cursor: pointer;
+}
+
+.goal.keyword {
+    background-color: #fef7d8;
+    cursor: default;
+    border: 3px solid black;
+    box-sizing: border-box;
+}
+
+.center-mandal .goal {
+    cursor: default;
+}
+
+.center-mandal .goal.keyword {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}

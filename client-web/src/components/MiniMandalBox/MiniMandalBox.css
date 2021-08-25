@@ -1,0 +1,137 @@
+.miniMandalBox {
+    min-width: 285px;
+    max-width: 285px;
+    border: 3px solid #000;
+}
+.miniMandal {
+    background: #ffffff;
+}
+
+.miniMandal ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.miniMandal li:first-child {
+    overflow: hidden;
+    height: 285px;
+    background-color: #f0f0f0;
+    border-bottom: 3px solid #000;
+}
+.miniMandal li:last-child {
+    height: 66px;
+    background-color: #fff;
+}
+.smallMandalBox {
+    min-width: 135px;
+    max-width: 135px;
+    border: 3px solid #000;
+}
+.smallMandal ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.smallMandal li:first-child {
+    overflow: hidden;
+    height: 120px;
+    background-color: #f0f0f0;
+    border-bottom: 3px solid #000;
+    overflow: hidden;
+}
+.smallMandal li:last-child {
+    height: 30px;
+    background-color: #fff;
+}
+.mandalthumbnail {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+.miniMandal .textTitleDate {
+    display: flex;
+    flex-direction: column;
+    padding: 18px;
+}
+
+.textTitleDate span:first-child {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 3px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.textTitleDate span:last-child {
+    font-size: 14px;
+}
+.smallMandal .textTitleDate {
+    display: flex;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+}
+.smallMandal .textTitleDate {
+    display: flex;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+}
+.smallMandal .textTitleDate span:first-child {
+    margin-bottom: 0;
+}
+
+/* monthly activity */
+
+/* 만다라트에 유저정보 보여주는 영역 */
+.userInfoArea {
+    position: absolute;
+    background-color: #fff;
+    border-bottom: 3px solid #000;
+    width: 245px;
+    height: 66px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    font-weight: 600;
+}
+.wrapUserPic {
+    display: flex;
+    flex-direction: row;
+}
+.userPic {
+    border-radius: 50%;
+    border: 2px solid #000;
+    width: 37px;
+    height: 37px;
+    margin-right: 10px;
+}
+.userHeartArea {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.heartIcon {
+    width: 17px;
+    height: 17px;
+}
+.typography {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.bgYellow {
+    background-color: #FAD83B;
+}
+.bgShadow {
+    box-shadow: 10px 10px 0px rgba(0,0,0,0.25);
+}
+.transform:hover {
+    transform: translate(10px, 10px);
+    cursor: pointer;
+}

@@ -1,0 +1,69 @@
+.navlist-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 56px;
+}
+
+.navlist-container:hover {
+    background-color: black;
+}
+
+.navlist-flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navlist-icon {
+    width: 23px;
+    height: 23px;
+    margin-right: 10px;
+}
+
+.navlist-link-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 125px;
+    height: 40px;
+    transition: width 0.5s;
+    padding-right: 10px;
+}
+
+.navlist-link {
+    color: white;
+    font-size: 18px;
+    display: block;
+    transition-property: visibility;
+    transition-delay: 0.15s;
+}
+
+.navlist-drop-button {
+    font-size: 1.2rem;
+    color: white;
+    visibility: hidden;
+    cursor: pointer;
+}
+
+.navlist-container:hover .navlist-drop-button {
+    visibility: visible;
+}
+
+.navlist-container:hover .navlist-drop-button.hide {
+    visibility: hidden;
+}
+
+.dropdown-list-container {
+    height: 102px;
+    transition: height 0.5s;
+}
+
+.dropdown-list-container .navlist-container {
+    background-color: white;
+    border: 1px solid black;
+    transition: height 0.5s;
+}
+
+.dropdown-list-container .navlist-link {
+    color: black;
+}
