@@ -23,20 +23,6 @@ export const signOut = () => {
     }
 }
 
-// MANDALS
-
-export const fetchMandal = (mandalId) => async (dispatch) => {
-    const { data } = await server.get(`/mandal?id=${mandalId}`)
-    dispatch({ type: FETCH_MANDAL, payload: data })
-}
-
-export const getAllMandal = () => async (dispatch) => {
-    const { data } = await server.get(`/allmandal`)
-    dispatch({ type: GET_ALLMANDAL, payload: data })
-}
-
-// USERS
-
 export const getMandal = (userId) => async (dispatch) => {
     const { data } = await server.get(`/mandaluser?id=${userId}`)
     dispatch({ type: GET_MANDAL, payload: data })
@@ -50,6 +36,19 @@ export const getUserList = () => async (dispatch) => {
     const { data } = await server.get(`/userlist`)
     dispatch({ type: GET_USERLIST, payload: data })
 }
+
+// MANDALS
+
+export const fetchMandal = (mandalId) => async (dispatch) => {
+    const { data } = await server.get(`/mandal?id=${mandalId}`)
+    dispatch({ type: FETCH_MANDAL, payload: data })
+}
+
+export const getAllMandal = () => async (dispatch) => {
+    const { data } = await server.get(`/allmandal`)
+    dispatch({ type: GET_ALLMANDAL, payload: data })
+}
+
 export const createMandal = (mandalData, miniData) => async (dispatch) => {
     console.log("create Mandal request")
     const userId = localStorage.getItem("id")
