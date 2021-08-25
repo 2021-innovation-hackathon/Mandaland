@@ -1,6 +1,6 @@
 import server from "../apis/server"
 import history from "../history"
-import { CREATE_LOG, CREATE_MANDAL, EDIT_MANDAL, FETCH_LOG, FETCH_MANDAL, FETCH_MONTH_LOG, PATCH_LOG, SIGN_IN, SIGN_OUT, GET_MANDAL, GET_FRIENDINFO, GET_USERLIST } from "../type"
+import { CREATE_LOG, CREATE_MANDAL, EDIT_MANDAL, FETCH_LOG, FETCH_MANDAL, FETCH_MONTH_LOG, PATCH_LOG, SIGN_IN, SIGN_OUT, GET_MANDAL, GET_FRIENDINFO, GET_USERLIST, GET_ALLMANDAL } from "../type"
 import { getDateString, getYear, getMonthIndex, getDate } from "./getDateString"
 
 // USERS
@@ -29,10 +29,19 @@ export const fetchMandal = (mandalId) => async (dispatch) => {
     const { data } = await server.get(`/mandal?id=${mandalId}`)
     dispatch({ type: FETCH_MANDAL, payload: data })
 }
+
+export const getAllMandal = () => async (dispatch) => {
+    const { data } = await server.get(`/allmandal`)
+    dispatch({ type: GET_ALLMANDAL, payload: data })
+}
+
+// USERS
+
 export const getMandal = (userId) => async (dispatch) => {
     const { data } = await server.get(`/mandaluser?id=${userId}`)
     dispatch({ type: GET_MANDAL, payload: data })
 }
+
 export const getFriendInfo = (friendId) => async (dispatch) => {
     const { data } = await server.get(`/mandalplan/view?id=${friendId}`)
     dispatch({ type: GET_FRIENDINFO, payload: data })

@@ -54,6 +54,22 @@ app.get("/mandal", async (req, res) => {
     }
 })
 
+// MINI MANDALS
+
+app.get("/allmandal", async (req, res) => {
+    try {
+        console.log(`GET /allmandals`)
+        const mandals = await db.get(`/mandals`)
+        const data = {
+            allmandal: mandals.data,
+        }
+        res.status("200").json(data).end() // 200 == success
+    } catch (err) {
+        console.log(err)
+        res.status("400").json(err).end()
+    }
+})
+
 // USERS
 
 app.get("/mandaluser", async (req, res) => {
