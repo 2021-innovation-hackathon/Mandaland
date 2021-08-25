@@ -71,8 +71,6 @@ export const renderCurrentProfile = (props, sameUser) => {
 }
 
 export const renderMonthlyActivity = (props, sameUser) => {
-    console.log(sameUser);
-
     const gridStyle = {
         gridColumn: "2/6",
     }
