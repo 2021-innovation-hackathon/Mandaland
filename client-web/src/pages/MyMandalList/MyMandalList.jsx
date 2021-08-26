@@ -106,7 +106,7 @@ export const renderCurrentMandal = (props) => {
             <h3 className="currentMandalTitle">진행 중인 만다라트({`${props.mandalarts.length}`})</h3>
             <div className="currentMandals" style={mandalListStyle}>
                 {props.mandalarts.map((mandal) => {
-                    return <MiniMandalBox style={marginStyle} key={mandal.id} size="mini" userId={props.user.id} mandalId={mandal.id} title={mandal.title} thumbnail={mandal.thumbnailPath} startDate={mandal.startDate} endDate={mandal.endDate} />
+                    return <MiniMandalBox style={marginStyle} key={mandal.id} size="mini" userId={props.user.id} mandalId={mandal.id} title={mandal.title} thumbnail={mandal.thumbnailPath} startDate={mandal.startDate} owner={mandal.userId} />
                 })}
             </div>
         </article>
