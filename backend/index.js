@@ -158,7 +158,7 @@ app.put("/mandal/edit", async (req, res) => {
         const mandal = await db.patch(`/mandals/${req.body.mandalId}`, req.body.mandalData)
 
         const miniDatas = mandals.initiateMiniEdit(mandal.data.miniIds, req.body.miniData)
-
+        // miniDatas.forEach((data) => console.log(data.id, data.edit_data.keyword, data.goals))
         const promises = miniDatas.map(async (mini) => {
             return await db.patch(`/minimandals/${mini.id}`, mini.edit_data).then((res) => res.data)
         })
@@ -168,6 +168,7 @@ app.put("/mandal/edit", async (req, res) => {
             mandal: mandal.data,
             miniMandals,
         }
+        console.log(miniMandals)
         res.status("200").json(data).end()
     } catch (err) {
         console.log(err)
@@ -230,9 +231,6 @@ app.put("/checklogs", async (req, res) => {
 app.put("/lands", async (req, res) => {
     try {
         console.log(`POST /lands`)
-        // const existData = await db.get(`/lands?userId=${req.body.userId}`)
-        // const newData = existData.data[0].cubes.concat(req.body.newCubes)
-        // await db.delete(`/lands?userId=${req.body.userId}`)
         const { data } = await db.patch(`/lands/${req.body.landId}`, { cubes: req.body.newCubes })
         res.status("200").json(data).end()
     } catch (err) {
@@ -244,9 +242,11 @@ app.put("/lands", async (req, res) => {
 app.get("/lands", async (req, res) => {
     try {
         console.log(`GET /lands?userId=${req.query.userId}`)
+        const logs = await db.get(`/checklogs?userId=${req.query.userId}`)
+        const nOfCount = countLogs.countLogsOfUser(logs.data)
         const { data } = await db.get(`/lands?userId=${req.query.userId}`)
-        console.log(data[0])
-        res.status("200").json(data[0]).end()
+        const result = { nOfCount, land: data[0] }
+        res.status("200").json(result).end()
     } catch (err) {
         console.log(err)
         res.status("400").json(err).end()

@@ -2,8 +2,106 @@
     transform: translateX(-360px) translateY(-132px);
 }
 
+.left-tool-box {
+    width: 277px;
+    height: 100%;
+    background-color: #5ace95;
+    z-index: 40;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border: 4px solid black;
+}
+
+.coin-wrapper {
+    height: 303px;
+    border-bottom: 3px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 25px;
+}
+
+.coin-box {
+    width: 225px;
+    height: 85px;
+}
+
+.coins {
+    position: absolute;
+    transform: translateX(108px);
+    font-family: DungGeunMo;
+    font-size: 40px;
+}
+
+.color-box {
+    margin: 130px 20px 84px 20px;
+}
+
+.color-index {
+    transform: translateX(28px) translateY(11px);
+}
+
+.color-picker-wrapper {
+    z-index: 50;
+    background-color: white;
+    border: 4px solid black;
+    width: 232px;
+    height: 267px;
+    box-sizing: border-box;
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.25);
+}
+
+.react-colorful__interactive {
+    border-radius: 0 0 0 0 !important;
+}
+
+.color-picker-wrapper .react-colorful {
+    width: 224px;
+    height: 259px;
+}
+.color-picker-wrapper .react-colorful__hue {
+    height: 40px;
+    border-radius: 0 0 0 0;
+}
+.color-picker-wrapper .react-colorful__hue-pointer {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+}
+.react-colorful__saturation {
+    border-radius: 0 !important;
+}
+
 .land-save-wrapper {
     position: absolute;
-    right: 100px;
+    top: 900px;
+    right: 65px;
     z-index: 50;
+}
+
+.land-save-wrapper > .custom-button {
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.25);
+}
+
+.extra-button-container {
+    position: absolute;
+    top: 1065px;
+    width: 275px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.circle-button {
+    background-color: #fad83b;
+    width: 74px;
+    height: 74px;
+    z-index: 60;
+    border-radius: 37px;
+    border: 4px solid black;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.25);
 }

@@ -5,7 +5,7 @@ const landReducers = (state = [], action) => {
         case SAVE_LAND:
             return { ...state }
         case FETCH_LAND:
-            return { ...state, ...action.payload }
+            return { ...state, land: action.payload.land, count: action.payload.nOfCount }
         default:
             return state
     }

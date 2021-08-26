@@ -2,10 +2,8 @@ import React from "react"
 import { connect } from "react-redux"
 import { fetchLand, saveLand } from "../../actions"
 import Voxelpainter from "./Three"
-// import CustomButton from "../../components/CustomButton/CustomButton"
 
 import "./Mandaland.css"
-
 class Mandaland extends React.Component {
     componentDidMount = () => {
         this.props.fetchLand()
@@ -22,7 +20,7 @@ class Mandaland extends React.Component {
             const App = document.querySelector(".App")
             return (
                 <div>
-                    <Voxelpainter landId={this.props.land.id} landcubes={this.props.land.cubes} onSave={this.onSave} />
+                    <Voxelpainter landId={this.props.land.land.id} landcubes={this.props.land.land.cubes} count={this.props.land.count + 100} onSave={this.onSave} />
                 </div>
             )
         }

@@ -4,6 +4,13 @@ const countLogsByDay = (checks) => {
     return rowCount.reduce((acc, cur) => acc + cur)
 }
 
+const countLogsOfUser = (allChecks) => {
+    console.log(allChecks)
+    const everyDayCheckCounts = allChecks.map((checksOfDay) => countLogsByDay(checksOfDay.checks))
+    return everyDayCheckCounts.reduce((acc, cur) => acc + cur)
+}
+
 module.exports = countLogs = {
     countLogsByDay,
+    countLogsOfUser,
 }

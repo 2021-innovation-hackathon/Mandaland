@@ -51,6 +51,7 @@ export const getAllMandal = () => async (dispatch) => {
 
 export const createMandal = (mandalData, miniData) => async (dispatch) => {
     console.log("create Mandal request")
+    console.log(mandalData, miniData)
     const userId = localStorage.getItem("id")
     const { data } = await server.post("/mandal/create", { userId, mandalData, miniData })
     console.log("created")
@@ -60,6 +61,7 @@ export const createMandal = (mandalData, miniData) => async (dispatch) => {
 
 export const editMandal = (mandalId, mandalData, miniData) => async (dispatch) => {
     console.log("edit Mandal request")
+    console.log(mandalData, miniData)
     const { data } = await server.put("/mandal/edit", { mandalId, mandalData, miniData })
     console.log("edited")
     dispatch({ type: EDIT_MANDAL, payload: data })
@@ -112,7 +114,7 @@ export const patchLog = (miniMandalIndex, goalIndex, check, state) => async (dis
     dispatch({ type: PATCH_LOG, payload: data })
 }
 
-// SCENE
+// LAND
 export const saveLand = (landId, newCubes) => async (dispatch) => {
     console.log("saveLand request")
     const { data } = await server.put(`/lands`, { landId, newCubes })
@@ -124,6 +126,5 @@ export const fetchLand = () => async (dispatch) => {
     console.log("fetchLand request")
     const userId = localStorage.getItem("id")
     const { data } = await server.get(`/lands?userId=${userId}`)
-    console.log(data)
     dispatch({ type: FETCH_LAND, payload: data })
 }
