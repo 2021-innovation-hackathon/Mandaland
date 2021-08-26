@@ -144,7 +144,6 @@ class Three extends React.Component {
                     const { x, y, z } = voxel.position
                     objectIndexes.push([x, y, z].join(""))
                     this.setState({ newCubes: [...this.state.newCubes, voxel.position] })
-                    console.log(this.state.newCubes)
                 }
                 renderThree()
             }
@@ -188,7 +187,8 @@ class Three extends React.Component {
     }
 
     onClick = () => {
-        this.props.onSave(this.state.newCubes)
+        console.log(this.props.landId)
+        this.props.onSave(this.props.landId, this.state.newCubes)
     }
 
     render() {
