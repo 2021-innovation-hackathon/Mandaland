@@ -33,7 +33,7 @@ const MiniMandalBox = (props) => {
                             {props.thumbnail == undefined ? (
                                 <img src={window.location.origin + "/images/thumbnail.png"} alt="thumbnail" className="mandalthumbnail" />
                             ) : (
-                                <img src={window.location.origin + `/${props.thumbnail}`} alt="thumbnail" className="mandalthumbnail" />
+                                <img src={window.location.origin + `${props.thumbnail}`} alt="thumbnail" className="mandalthumbnail" />
                             )}
                         </li>
                         <li>
