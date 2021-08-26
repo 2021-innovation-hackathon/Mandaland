@@ -5,6 +5,11 @@
 }
 @font-face {
     font-family: Archivo;
+    src: url("/font/Archivo/Archivo_Expanded-Regular.ttf") format("truetype");
+    font-weight: 450;
+}
+@font-face {
+    font-family: Archivo;
     src: url("/font/Archivo/Archivo_Expanded-Medium.ttf") format("truetype");
     font-weight: 500;
 }

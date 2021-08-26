@@ -2,10 +2,8 @@ import React from "react"
 import { connect } from "react-redux"
 import { fetchLand, saveLand } from "../../actions"
 import Voxelpainter from "./Three"
-// import CustomButton from "../../components/CustomButton/CustomButton"
 
 import "./Mandaland.css"
-
 class Mandaland extends React.Component {
     componentDidMount = () => {
         this.props.fetchLand()

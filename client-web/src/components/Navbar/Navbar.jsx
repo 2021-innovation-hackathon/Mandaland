@@ -7,6 +7,9 @@ import NavMonthly from "../NavMonthly/NavMonthly"
 
 class Navbar extends React.Component {
     state = { open: true }
+    componentDidMount = () => {
+        console.log(this.props)
+    }
 
     getDropContent = () => {
         let userId
@@ -68,4 +71,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(Navbar)
+export default connect(mapStateToProps, null)(Navbar)

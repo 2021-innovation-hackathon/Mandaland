@@ -4,7 +4,7 @@
     align-items: center;
     padding-top: 40px;
     visibility: visible;
-    border-top: 3px solid #000
+    border-top: 3px solid #000;
 }
 
 .navmonthly-container.close {
@@ -76,14 +76,16 @@
     width: 21px;
     height: 11px;
     line-height: 11px;
-    font-size: 0.7rem;
+    font-size: 10px;
+    font-weight: 450;
     margin-bottom: 5px;
 }
 
 .day-tile {
     width: 21px;
     height: 21px;
-    font-size: 0.8rem;
+    font-size: 10px;
+    font-weight: 450;
     line-height: 21px;
 }
 
