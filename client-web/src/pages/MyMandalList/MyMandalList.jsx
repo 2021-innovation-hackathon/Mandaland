@@ -1,6 +1,8 @@
 import React, { setState, useState, useEffect } from "react"
 import { connect } from "react-redux"
 import { getMandal, getFriendInfo } from "../../actions"
+import { Link } from "react-router-dom"
+import history from "../../history"
 import MiniMandalBox from "../../components/MiniMandalBox/MiniMandalBox"
 import MandalViewChanger from "../../components/MandalViewChanger/MandalViewChanger"
 import FeedTitle from "../../components/FeedTitle/FeedTitle"
@@ -8,6 +10,7 @@ import MonthlyProgress from "../../components/MonthlyProgress/MonthlyProgress"
 import "./MyMandalList.css"
 
 const MyMandalList = (props) => {
+    if (!props.user || !props.user.isSignedIn) history.push("/")
     const id = window.localStorage.getItem("id")
     const [routeId, setRouteId] = useState(props.match.params.userId)
     var [sameUser, setSameUser] = useState(id == routeId)
@@ -83,18 +86,21 @@ export const renderMonthlyActivity = (props, sameUser) => {
         </article>
     )
 }
+
 export const renderMandalandBtn = (props, sameUser) => {
     if (sameUser) {
         return <div></div>
     }
+    console.log("props", props)
+    const landOwnderId = props.match.params.userId
     return (
-        <button className="gridItem goMandalandBtn">
+        <Link className="gridItem goMandalandBtn" to={`/mandaland/${landOwnderId}`}>
             <img src={window.location.origin + "/icons/mandaland.svg"} alt="" />
             <div className="wrapGoText">
                 <span className="goMandalText english">GO</span>
                 <img src={window.location.origin + "/icons/arrow_pink.svg"} alt="" />
             </div>
-        </button>
+        </Link>
     )
 }
 export const renderCurrentMandal = (props) => {

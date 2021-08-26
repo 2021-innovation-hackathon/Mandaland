@@ -35,20 +35,34 @@ class Navbar extends React.Component {
         return this.state.open ? "Close" : "Open"
     }
 
-    renderContents = () => {
+    renderNavlists = () => {
         const imagePaths = ["/icons/home.svg", "/icons/search_white.svg", "/icons/plan.svg", "/icons/land.svg", "/icons/setting.svg"].map((path) => window.location.origin + path)
         const tempLink = "/"
+        if (this.props && this.props.user.isSignedIn) {
+            return (
+                <React.Fragment>
+                    <Navlist title="Home" iconPath={imagePaths[0]} open={this.state.open} aLink={tempLink} />
+                    <Navlist title="Feed" iconPath={imagePaths[1]} open={this.state.open} aLink={`/feed/view/${this.props.user.id}`} />
+                    <Navlist title="Mandalplan" iconPath={imagePaths[2]} open={this.state.open} aLink={`/mandalplan/view/${this.props.user.id}`} dropContent={this.getDropContent()} />
+                    <Navlist title="Mandaland" iconPath={imagePaths[3]} open={this.state.open} aLink={`/mandaland/${this.props.user.id}`} />
+                    <Navlist title="Setting" iconPath={imagePaths[4]} open={this.state.open} aLink={"/setting"} />
+                </React.Fragment>
+            )
+        } else {
+            return (
+                <React.Fragment>
+                    <Navlist title="Home" iconPath={imagePaths[0]} open={this.state.open} aLink={tempLink} />
+                    <Navlist title="Feed" iconPath={imagePaths[1]} open={this.state.open} aLink={"/feed/before"} />
+                </React.Fragment>
+            )
+        }
+    }
 
+    renderContents = () => {
         return (
             <nav className="navbar" style={{ width: this.renderNavWidth() + "px" }}>
                 <NavProfile open={this.state.open} userProfile={this.props.user} />
-                <div className="wrapNavmenu">
-                    <Navlist title="Home" iconPath={imagePaths[0]} open={this.state.open} aLink={tempLink} />
-                    <Navlist title="Feed" iconPath={imagePaths[1]} open={this.state.open} aLink={tempLink} />
-                    <Navlist title="Mandalplan" iconPath={imagePaths[2]} open={this.state.open} aLink={`/mandalplan/view/${this.props.user.id}`} dropContent={this.getDropContent()} />
-                    <Navlist title="Mandaland" iconPath={imagePaths[3]} open={this.state.open} aLink={`/mandaland/${this.props.user.id}`} />
-                    <Navlist title="Setting" iconPath={imagePaths[4]} open={this.state.open} aLink={tempLink} />
-                </div>
+                <div className="wrapNavmenu">{this.renderNavlists()}</div>
                 <NavMonthly open={this.state.open} />
                 <div className="toggle-button-wrapper">
                     <div className="toggle-button" onClick={this.onToggleClick}>

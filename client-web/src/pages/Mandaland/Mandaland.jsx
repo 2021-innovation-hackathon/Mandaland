@@ -1,12 +1,13 @@
 import React from "react"
 import { connect } from "react-redux"
 import { fetchLand, saveLand } from "../../actions"
+import history from "../../history"
 import Voxelpainter from "./Three"
 
 import "./Mandaland.css"
 class Mandaland extends React.Component {
     componentDidMount = () => {
-        this.props.fetchLand()
+        this.props.fetchLand(this.props.match.params.userId)
     }
 
     onSave = (landId, newCubes) => {
@@ -14,13 +15,13 @@ class Mandaland extends React.Component {
     }
 
     render() {
+        if (!this.props.user || !this.props.user.isSignedIn) history.push("/")
         if (!this.props.land || this.props.land.length === 0) {
             return null
         } else {
-            const App = document.querySelector(".App")
             return (
                 <div>
-                    <Voxelpainter landId={this.props.land.land.id} landcubes={this.props.land.land.cubes} count={this.props.land.count + 100} onSave={this.onSave} />
+                    <Voxelpainter userId={this.props.land.land.userId} landId={this.props.land.land.id} landcubes={this.props.land.land.cubes} count={this.props.land.count + 100} onSave={this.onSave} />
                 </div>
             )
         }
@@ -29,6 +30,7 @@ class Mandaland extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
+        user: state.user,
         land: state.land,
     }
 }

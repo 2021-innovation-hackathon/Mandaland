@@ -1,7 +1,7 @@
 import { Router, Route, Switch } from "react-router-dom"
 import history from "./history"
 
-import Main from "./pages/Main"
+import Main from "./pages/Main/Main"
 import Header from "./components/Header/Header"
 import Navbar from "./components/Navbar/Navbar"
 import Mandalart from "./pages/Mandalart/Mandalart"
@@ -12,6 +12,7 @@ import EditMandalart from "./pages/EditMandalart/EditMandalart"
 import Mandaland from "./pages/Mandaland/Mandaland"
 import FeedLogin from "./pages/FeedLogin/FeedLogin"
 import FeedMandalart from "./pages/FeedMandalart/FeedMandalart"
+import Preparing from "./pages/Preparing/Preparing"
 
 import "./components/reset.css"
 import "./components/common.css"
@@ -37,6 +38,7 @@ function App() {
                             <Route path="/feed/view/:userId" exact component={FeedLogin} />
                             <Route path="/feed/mandalart/:userId/:mandalId" exact component={FeedMandalart} />
                             <Route path="/mandaland/:userId" exact component={Mandaland} />
+                            <Route path="/setting" exact component={Preparing} />
                         </div>
                     </Switch>
                 </div>

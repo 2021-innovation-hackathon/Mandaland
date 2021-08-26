@@ -1,0 +1,16 @@
+.preparing-logo {
+    margin-top: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.preparing-logo img {
+    width: 1000px;
+}
+
+.preparing-text {
+    font-family: DungGeunMo;
+    font-weight: 500;
+    font-size: 50px;
+}

@@ -89,7 +89,7 @@ class Three extends React.Component {
             const rollOverGeo = new THREE.BoxGeometry(25, 25, 25)
             rollOverMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000, opacity: 0.5, transparent: true })
             rollOverMesh = new THREE.Mesh(rollOverGeo, rollOverMaterial)
-            scene.add(rollOverMesh)
+            if (this.props.userId == localStorage.getItem("id")) scene.add(rollOverMesh)
 
             if (this.props.landcubes) {
                 for (let i = 0; i < this.props.landcubes.length; i++) {
@@ -112,20 +112,21 @@ class Three extends React.Component {
         }
 
         const onPointerMove = (event) => {
-            pointer.set((event.clientX / window.innerWidth) * 2 - 1, -(event.clientY / window.innerHeight) * 2 + 1)
+            if (this.props.userId == localStorage.getItem("id")) {
+                pointer.set((event.clientX / window.innerWidth) * 2 - 1, -(event.clientY / window.innerHeight) * 2 + 1)
 
-            raycaster.setFromCamera(pointer, camera)
+                raycaster.setFromCamera(pointer, camera)
 
-            const intersects = raycaster.intersectObjects(objects)
+                const intersects = raycaster.intersectObjects(objects)
 
-            if (intersects.length > 0) {
-                const intersect = intersects[0]
+                if (intersects.length > 0) {
+                    const intersect = intersects[0]
 
-                rollOverMesh.position.copy(intersect.point)
-                rollOverMesh.position.add(intersect.face.normal)
-                rollOverMesh.position.divideScalar(25).floor().multiplyScalar(25).addScalar(12.5)
+                    rollOverMesh.position.copy(intersect.point)
+                    rollOverMesh.position.add(intersect.face.normal)
+                    rollOverMesh.position.divideScalar(25).floor().multiplyScalar(25).addScalar(12.5)
+                }
             }
-
             renderThree()
         }
 
@@ -135,8 +136,7 @@ class Three extends React.Component {
             raycaster.setFromCamera(pointer, camera)
 
             const intersects = raycaster.intersectObjects(objects)
-
-            if (intersects.length > 0) {
+            if (this.props.userId == localStorage.getItem("id") && intersects.length > 0) {
                 const intersect = intersects[0]
 
                 // delete cube
