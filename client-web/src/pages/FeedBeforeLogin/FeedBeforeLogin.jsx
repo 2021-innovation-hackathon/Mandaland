@@ -13,28 +13,17 @@ const FeedBeforeLogin = (props) => {
     const curMandalMarginstyle = {
         justifyContent :"space-between",
     }    
-    const keywordArr = [
-        '디자인', '개발', '환경사랑', '고시', '취미생활', '문화. 예술', '건강', '사진', 
-        '영화', ' 음악', '동물', '음식', '뮤지컬', '루틴', '알고리즘', '언어'
-    ]
-    
+   
     return (
         <div>
             <FeedTitle />
             <section>
-                <article className="keyword-section">
-                    <HeaderText text="만다라트 키워드"/>
-                    <div class="keyword-wrapper">
-                        {keywordArr.map((ele) => {
-                            return <BodyText fontsize="20" text={ele} />
-                        })}
-                    </div>
-                </article>
+                {renderMandalKeyword(keywordArr)}
                 <article className="popular-section">
                     <HeaderText text="이달의 인기 만다라트"/>
                     <div className="currentMandals" style={curMandalMarginstyle}>
-                        {/* 일단 인기만다라트를 측정할 척도가 없으므로 더미로 넣음 */}
-                        {currentMandalArr.map((mandal) => {
+                        {/* 일단 인기만다라트를 측정할 척도가 없으므로 더미로 넣음 -> 더미이기때문에 이를 클릭하면 해당하는 userid와 mandalid가 없으므로 undefined되어 제대로 링크이동이 안됨*/}
+                        {popularMandal.map((mandal) => {
                             return <MiniMandalBox key={mandal.id} size="mini" title={mandal.title} startDate={mandal.startDate} endDate={mandal.endDate}  getHeart={true} userInfo={mandal} thumbnail={mandal.thumbnailPath} imagePath={mandal.imagePath} name={mandal.userName} heartNum={mandal.heartNum} backgroundColor={true}/>
                         })}
                     </div>
@@ -44,7 +33,25 @@ const FeedBeforeLogin = (props) => {
         </div>
     )
 }
-const currentMandalArr = [
+
+export const keywordArr = [
+    '디자인', '개발', '환경사랑', '고시', '취미생활', '문화. 예술', '건강', '사진', 
+    '영화', ' 음악', '동물', '음식', '뮤지컬', '루틴', '알고리즘', '언어'
+]
+export const renderMandalKeyword = (keywordArr) => {
+    return (
+        <article className="keyword-section">
+            <HeaderText text="만다라트 키워드"/>
+            <div class="keyword-wrapper">
+                {keywordArr.map((ele) => {
+                    return <BodyText fontsize="20" text={ele} />
+                })}
+            </div>
+        </article>
+    )
+}
+
+const popularMandal = [
     {
         id: 1,
         title: "행복하고 당당한 2021년의 나!!!",
