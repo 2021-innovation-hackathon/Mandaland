@@ -19,12 +19,13 @@ const SearchBox = (props) => {
     } 
     const search = (curSelect) => {
         const keyword = document.querySelector('.inputBox').value;
-
         if(curSelect == "username") {
-            window.location.href = `/mandalplan/view/${searchByUsername(keyword)}`
+            const id = searchByUsername(keyword)
+           { id != undefined && (window.location.href = `/mandalplan/view/${id}`) }
         }
         else {
-            window.location.href = `/mandalplan/view/${searchBytopic(keyword)}`
+            const id = searchBytopic(keyword)
+            {id != undefined && (window.location.href = `/mandalplan/view/${id}`) }
         }
     }
     const searchByUsername = (username) => {
@@ -36,7 +37,8 @@ const SearchBox = (props) => {
             })
         }
         if(correspondResult.length == 0) {
-            throw new Error("사용자가 존재하지 않습니다")
+            alert("사용자가 존재하지 않습니다");
+            return
         }
         return correspondResult[0].id
     }
@@ -52,7 +54,8 @@ const SearchBox = (props) => {
             })
         }
         if(titlecorrespondResult.length == 0) {
-            throw new Error("주제가 존재하지 않습니다")
+            alert("주제가 존재하지 않습니다")
+            return
         }
         return titlecorrespondResult[0].userId
     }
