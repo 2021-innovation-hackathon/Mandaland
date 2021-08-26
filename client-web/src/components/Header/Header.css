@@ -1,10 +1,10 @@
 .background {
     display: flex;
     justify-content: space-between;
-    padding: 19px 51px;
+    padding: 19px 40px;
     background-color: #f0f0f0;
     height: 42px;
-    background-color: #F06756;
+    background-color: #f06756;
     border-bottom: 4px solid #000;
 }
 .fixed {

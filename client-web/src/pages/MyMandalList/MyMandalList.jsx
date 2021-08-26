@@ -9,7 +9,7 @@ import "./MyMandalList.css"
 
 const MyMandalList = (props) => {
     const id = window.localStorage.getItem("id")
-    const [routeId, setRouteId] = useState(props.match.params.userid)
+    const [routeId, setRouteId] = useState(props.match.params.userId)
     var [sameUser, setSameUser] = useState(id == routeId)
     useEffect(() => {
         props.getMandal(routeId)
@@ -106,7 +106,7 @@ export const renderCurrentMandal = (props) => {
             <h3 className="currentMandalTitle">진행 중인 만다라트({`${props.mandalarts.length}`})</h3>
             <div className="currentMandals" style={mandalListStyle}>
                 {props.mandalarts.map((mandal) => {
-                    return <MiniMandalBox style={marginStyle} key={mandal.id} size="mini" userId={props.user.id} mandalId={mandal.id} title={mandal.title} thumbnail={mandal.thumbnailPath} startDate={mandal.startDate} endDate={mandal.endDate} />
+                    return <MiniMandalBox style={marginStyle} key={mandal.id} size="mini" userId={props.user.id} mandalId={mandal.id} title={mandal.title} thumbnail={mandal.thumbnailPath} startDate={mandal.startDate} owner={mandal.userId} />
                 })}
             </div>
         </article>

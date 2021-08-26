@@ -1,0 +1,69 @@
+.friendInfoBox {
+    min-width: 285px;
+    max-width: 285px;
+    border: 3px solid #000;
+}
+.friendInfo {
+    background: #ffffff;
+}
+
+.friendInfo ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.friendInfo li:first-child {
+    overflow: hidden;
+    height: 213px;
+    background-color: #fff;
+    border-bottom: 3px solid #000;
+}
+.friendInfo li:last-child {
+    height: 55px;
+    background-color: #fad83b;
+}
+.friendInfo .textTitleDate {
+    display: flex;
+    flex-direction: column;
+    padding: 18px;
+}
+.transform:hover {
+    transform: translate(10px, 10px);
+    cursor: pointer;
+}
+.bgShadow {
+    box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.25);
+}
+.alignBoxes {
+    margin-right: 30px;
+}
+.imageStyle {
+    border: 3px solid #000;
+    border-radius: 50%;
+    width: 35%;
+    margin-bottom: 12px;
+}
+.wrapSection {
+    display: flex;
+    margin-bottom: 72px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.resolution {
+    display: flex;
+    align-items: center;
+}
+.profileArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.nameText {
+    font-size: 20px;
+    font-weight: 700;
+}
+.wrapMargin {
+    margin: 30px 40px;
+    margin-bottom: 4px;
+}

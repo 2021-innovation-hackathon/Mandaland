@@ -8,7 +8,6 @@ const Logo = (isTitleText) => {
             <div className="logo">
                 <img src={window.location.origin + "/images/logo.png"} alt="mandalandLogo" />
             </div>
-            <h1 className="logoFontStyle english">MandaLand</h1>
         </Link>
     )
 }

@@ -10,6 +10,8 @@ import FeedBeforeLogin from "./pages/FeedBeforeLogin/FeedBeforeLogin"
 import NewMandalart from "./pages/NewMandalart/NewMandalart"
 import EditMandalart from "./pages/EditMandalart/EditMandalart"
 import Mandaland from "./pages/Mandaland/Mandaland"
+import FeedLogin from "./pages/FeedLogin/FeedLogin"
+import FeedMandalart from "./pages/FeedMandalart/FeedMandalart"
 
 import "./components/reset.css"
 import "./components/common.css"
@@ -27,11 +29,13 @@ function App() {
                     <Switch>
                         <div className="main-body">
                             <Route path="/" exact component={Main} />
-                            <Route path="/mandalplan/view/:userid" exact component={MyMandalList} />
+                            <Route path="/mandalplan/view/:userId" exact component={MyMandalList} />
                             <Route path="/mandalplan/new" exact component={NewMandalart} />
                             <Route path="/mandalplan/edit/:mandalId" exact component={EditMandalart} />
                             <Route path="/mandalart/:userId/:mandalId" exact component={Mandalart} />
-                            <Route path="/feed" exact component={FeedBeforeLogin} />
+                            <Route path="/feed/before" exact component={FeedBeforeLogin} />
+                            <Route path="/feed/view/:userId" exact component={FeedLogin} />
+                            <Route path="/feed/mandalart/:userId/:mandalId" exact component={FeedMandalart} />
                             <Route path="/mandaland/:userId" exact component={Mandaland} />
                         </div>
                     </Switch>
