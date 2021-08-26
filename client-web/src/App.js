@@ -32,7 +32,7 @@ function App() {
                             <Route path="/mandalplan/new" exact component={NewMandalart} />
                             <Route path="/mandalplan/edit/:mandalId" exact component={EditMandalart} />
                             <Route path="/mandalart/:userId/:mandalId" exact component={Mandalart} />
-                            <Route path="/feedbefore" exact component={FeedBeforeLogin} />
+                            <Route path="/feed/before" exact component={FeedBeforeLogin} />
                             <Route path="/feed/view/:userId" exact component={FeedLogin} />
                             <Route path="/mandaland/:userId" exact component={Mandaland} />
                         </div>
