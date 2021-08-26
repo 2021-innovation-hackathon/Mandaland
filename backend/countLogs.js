@@ -6,6 +6,7 @@ const countLogsByDay = (checks) => {
 
 const countLogsOfUser = (allChecks) => {
     console.log(allChecks)
+    if (allChecks.length === 0) return 0
     const everyDayCheckCounts = allChecks.map((checksOfDay) => countLogsByDay(checksOfDay.checks))
     return everyDayCheckCounts.reduce((acc, cur) => acc + cur)
 }

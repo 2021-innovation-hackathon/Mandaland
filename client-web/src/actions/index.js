@@ -15,6 +15,7 @@ export const signIn = (userInfo) => async (dispatch) => {
     })
     localStorage.setItem("id", data.id)
     dispatch({ type: SIGN_IN, payload: data })
+    history.push(`/feed/view/${data.id}`)
 }
 
 export const signOut = () => {
@@ -122,9 +123,8 @@ export const saveLand = (landId, newCubes) => async (dispatch) => {
     dispatch({ type: SAVE_LAND })
 }
 
-export const fetchLand = () => async (dispatch) => {
+export const fetchLand = (userId) => async (dispatch) => {
     console.log("fetchLand request")
-    const userId = localStorage.getItem("id")
     const { data } = await server.get(`/lands?userId=${userId}`)
     dispatch({ type: FETCH_LAND, payload: data })
 }
