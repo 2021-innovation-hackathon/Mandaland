@@ -113,11 +113,9 @@ export const patchLog = (miniMandalIndex, goalIndex, check, state) => async (dis
 }
 
 // SCENE
-export const saveLand = (newCubes) => async (dispatch) => {
+export const saveLand = (landId, newCubes) => async (dispatch) => {
     console.log("saveLand request")
-    console.log("new cubes:", newCubes)
-    const userId = localStorage.getItem("id")
-    const { data } = await server.put(`/lands`, { userId, newCubes })
+    const { data } = await server.put(`/lands`, { landId, newCubes })
     console.log(data)
     dispatch({ type: SAVE_LAND })
 }

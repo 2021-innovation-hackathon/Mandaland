@@ -1,4 +1,5 @@
 const express = require("express")
+const cors = require("cors")
 const app = express()
 const bodyParser = require("body-parser")
 const db = require("./dbServer")
@@ -7,9 +8,19 @@ const mandals = require("./mandals")
 
 app.use(bodyParser.json())
 
+// app.use(function (req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "http://localhost:3000")
+//     res.header("Access-Control-Allow-Method", "GET, POST, DELETE, OPTIONS, PUT")
+//     res.header("Access-Control-Allow-Headers", "*")
+//     next()
+// })
+
+app.use(cors())
+
 app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://localhost:3000")
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+    res.header("Access-Control-Allow-Origin", "*")
+    res.header("Access-Control-Allow-Methods", "GET, POST, DELETE, OPTIONS, PUT")
+    res.header("Access-Control-Allow-Headers", "*")
     next()
 })
 
@@ -222,7 +233,7 @@ app.put("/lands", async (req, res) => {
         // const existData = await db.get(`/lands?userId=${req.body.userId}`)
         // const newData = existData.data[0].cubes.concat(req.body.newCubes)
         // await db.delete(`/lands?userId=${req.body.userId}`)
-        const { data } = await db.patch(`/lands/${req.body.userId}`, { cubes: req.body.newCubes })
+        const { data } = await db.patch(`/lands/${req.body.landId}`, { cubes: req.body.newCubes })
         res.status("200").json(data).end()
     } catch (err) {
         console.log(err)

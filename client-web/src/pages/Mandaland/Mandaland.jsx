@@ -11,8 +11,8 @@ class Mandaland extends React.Component {
         this.props.fetchLand()
     }
 
-    onSave = (newCubes) => {
-        this.props.saveLand(newCubes)
+    onSave = (landId, newCubes) => {
+        this.props.saveLand(landId, newCubes)
     }
 
     render() {
@@ -22,7 +22,7 @@ class Mandaland extends React.Component {
             const App = document.querySelector(".App")
             return (
                 <div>
-                    <Voxelpainter landcubes={this.props.land.cubes} onSave={this.onSave} />
+                    <Voxelpainter landId={this.props.land.id} landcubes={this.props.land.cubes} onSave={this.onSave} />
                 </div>
             )
         }
