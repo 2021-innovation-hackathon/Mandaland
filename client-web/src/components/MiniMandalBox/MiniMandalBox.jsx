@@ -5,7 +5,6 @@ import BodyText from "../Typography/BodyText"
 import "./MiniMandalBox.css"
 
 const MiniMandalBox = (props) => {
-    console.log(props)
     return (
         <div className={`${props.backgroundColor == true ? "bgShadow" : ""}`}>
             <Link to={`/mandalart/${props.owner}/${props.mandalId}`}>
