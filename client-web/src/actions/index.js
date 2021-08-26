@@ -124,6 +124,5 @@ export const fetchLand = () => async (dispatch) => {
     console.log("fetchLand request")
     const userId = localStorage.getItem("id")
     const { data } = await server.get(`/lands?userId=${userId}`)
-    console.log(data)
     dispatch({ type: FETCH_LAND, payload: data })
 }

@@ -2,8 +2,37 @@
     transform: translateX(-360px) translateY(-132px);
 }
 
+.left-tool-box {
+    background-color: #5ace95;
+}
+
 .land-save-wrapper {
     position: absolute;
     right: 100px;
     z-index: 50;
+}
+
+.color-picker-wrapper {
+    position: absolute;
+    right: 100px;
+    top: 300px;
+    z-index: 50;
+    background-color: white;
+    border: 5px solid black;
+}
+
+.color-picker-wrapper .react-colorful {
+    height: 240px;
+}
+.color-picker-wrapper .react-colorful__saturation {
+    border-radius: 4px 4px 0 0;
+}
+.color-picker-wrapper .react-colorful__hue {
+    height: 40px;
+    border-radius: 0 0 4px 4px;
+}
+.color-picker-wrapper .react-colorful__hue-pointer {
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
 }
