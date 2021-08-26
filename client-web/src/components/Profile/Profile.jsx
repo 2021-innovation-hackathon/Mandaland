@@ -30,7 +30,10 @@ const Profile = ({ userImg }) => {
                 {/* TO DO: icon 이 숫자를 포함하고 있어서 변경필요 */}
                 <img src={window.location.origin + "/icons/bell.svg"} alt="bell" />
             </span>
-            <img src={userImg === null ? window.location.origin + "/icons/user.svg" : userImg} alt="" className="profileBtn" onClick={() => onClick()} />
+            {
+            userImg === null ?  <button className="loginbtnstyle english" onClick={() => onClick()}>LOGIN</button> : <img src={`${userImg}`} alt="profileImg" className="profileBtn" onClick={() => onClick()}/>}
+            
+
             <nav ref={dropdownRef} className={`menu ${isActive ? "active" : "inactive"}`}>
                 <ul>
                     <li>
