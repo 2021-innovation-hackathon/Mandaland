@@ -66,14 +66,13 @@ const BasicMandal = (props) => {
     }
 
     const renderEditButton = () => {
-
-        if (props.mandal.userId && localStorage.getItem("id") === props.mandal.userId) {
+        if (props.mandal.mandal.userId && localStorage.getItem("id") === props.mandal.mandal.userId) {
         return (
             <div className="button-wrapper">
                 <CustomButton
                     text="EDIT"
                     onClick={() => {
-                    history.push(`/mandalplan/edit/${props.mandal.id}`)
+                    history.push(`/mandalplan/edit/${props.mandal.mandal.id}`)
                     }}
                 />
             </div>

@@ -11,13 +11,11 @@ const FeedMandalart = (props) => {
         props.fetchMandal(props.match.params.mandalId)
         props.fetchLog(props.match.params.userId, props.match.params.mandalId)
     }, [])
-
     return (
         <div>
             <FeedTitle subtitle="이달의 인기 만다라트"/>
             {(props != null && props.mandal != null) && ( <BasicMandal mandal={props.mandal} log={props.log}/>) }
             {/* patchLog 넘겨주면 안됨(체크 가능하게 하는 것) */}
-            {console.log(props.mandal)}
         </div>
     )
 }
