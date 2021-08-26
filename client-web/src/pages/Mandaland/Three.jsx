@@ -3,10 +3,10 @@ import * as THREE from "three"
 import CustomButton from "../../components/CustomButton/CustomButton"
 import { HexColorPicker } from "react-colorful"
 class Three extends React.Component {
-    state = { newCubes: [...this.props.landcubes], color: "#ffffff" }
+    state = { newCubes: [...this.props.landcubes], color: "#ffffff", objectIndexes: [] }
     componentDidMount = () => {
         let camera, scene
-        let plane
+        let plane, planeVolume, planeVolume2
         let pointer,
             raycaster,
             isShiftDown = false
@@ -14,7 +14,6 @@ class Three extends React.Component {
         let cubeGeo, cubeMaterial
         let volumeTexture
         const objects = []
-        const objectIndexes = []
 
         const init = () => {
             camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 10000) //
@@ -39,14 +38,14 @@ class Three extends React.Component {
             const planeVolumeGeometry = new THREE.BoxGeometry(1000, 50, 1000)
             // 풀
             const planeVolumeMaterial = new THREE.MeshBasicMaterial({ color: 0xb9d051, map: volumeTexture })
-            const planeVolume = new THREE.Mesh(planeVolumeGeometry, planeVolumeMaterial)
+            planeVolume = new THREE.Mesh(planeVolumeGeometry, planeVolumeMaterial)
             planeVolume.position.copy(new THREE.Vector3(0, -25, 0))
             scene.add(planeVolume)
             objects.push(planeVolume)
 
             // 땅
             const planeVolumeMaterial2 = new THREE.MeshBasicMaterial({ color: 0x5a362c, map: volumeTexture })
-            const planeVolume2 = new THREE.Mesh(planeVolumeGeometry, planeVolumeMaterial2)
+            planeVolume2 = new THREE.Mesh(planeVolumeGeometry, planeVolumeMaterial2)
             planeVolume2.position.copy(new THREE.Vector3(0, -75, 0))
             scene.add(planeVolume2)
             objects.push(planeVolume2)
@@ -97,7 +96,7 @@ class Three extends React.Component {
                     const { x, y, z, color } = this.props.landcubes[i]
                     const material = new THREE.MeshLambertMaterial({ color, map: volumeTexture })
                     const cube = new THREE.Mesh(cubeGeo, material)
-                    objectIndexes.push([x, y, z].join(""))
+                    this.setState({ objectIndexes: [...this.state.objectIndexes, [x, y, z].join("")] })
                     cube.position.set(x, y, z)
                     scene.add(cube)
                     objects.push(cube)
@@ -142,27 +141,30 @@ class Three extends React.Component {
 
                 // delete cube
                 if (isShiftDown) {
-                    if (intersect.object !== plane) {
+                    if (intersect.object !== plane && intersect.object != planeVolume && intersect.object != planeVolume2) {
                         scene.remove(intersect.object)
                         const { x, y, z } = intersect.object.position
-                        const removeIndex = objectIndexes.indexOf([x, y, z].join(""))
+                        const removeIndex = this.state.objectIndexes.indexOf([x, y, z].join(""))
                         this.state.newCubes.splice(removeIndex, 1)
                         this.setState({ newCubes: this.state.newCubes })
-                        objectIndexes.splice(removeIndex, 1)
-                        objects.splice(objects.indexOf(intersect.object), 1)
+                        this.state.objectIndexes.splice(removeIndex, 1)
+                        this.setState({ objectsIndexs: this.state.objectsIndexs })
+                        // this.setState({objectsIndexs : [...this.state.objectsIndexs.filter((_, i) => i === removeIndex)]}) // 오브젝트 인덱스에서 제거
+                        objects.splice(objects.indexOf(intersect.object), 1) // 오브젝트에서 제거
                     }
                     // create cube
                 } else {
-                    console.log(this.state)
-                    cubeMaterial = new THREE.MeshLambertMaterial({ color: this.state.color, map: volumeTexture })
-                    const voxel = new THREE.Mesh(cubeGeo, cubeMaterial)
-                    voxel.position.copy(intersect.point).add(intersect.face.normal)
-                    voxel.position.divideScalar(25).floor().multiplyScalar(25).addScalar(12.5)
-                    scene.add(voxel)
-                    objects.push(voxel)
-                    const { x, y, z } = voxel.position
-                    objectIndexes.push([x, y, z].join(""))
-                    this.setState({ newCubes: [...this.state.newCubes, { x, y, z, color: this.state.color }] })
+                    if (this.props.count - this.state.objectIndexes.length > 0) {
+                        cubeMaterial = new THREE.MeshLambertMaterial({ color: this.state.color, map: volumeTexture })
+                        const voxel = new THREE.Mesh(cubeGeo, cubeMaterial)
+                        voxel.position.copy(intersect.point).add(intersect.face.normal)
+                        voxel.position.divideScalar(25).floor().multiplyScalar(25).addScalar(12.5)
+                        scene.add(voxel)
+                        objects.push(voxel)
+                        const { x, y, z } = voxel.position
+                        this.state.objectIndexes.push([x, y, z].join(""))
+                        this.setState({ newCubes: [...this.state.newCubes, { x, y, z, color: this.state.color }] })
+                    }
                 }
                 renderThree()
             }
@@ -205,15 +207,41 @@ class Three extends React.Component {
         this.mount.removeChild(this.renderer.domElement)
     }
 
-    onClick = () => {
+    renderCoinBox = () => {
+        return (
+            <div className="coin-wrapper">
+                <img src={window.location.origin + "/images/coinbox.svg"} alt="coinbox" />
+                <div className="coins">{this.props.count - this.state.objectIndexes.length}</div>
+            </div>
+        )
+    }
+
+    onClick = async () => {
         console.log(this.props.landId)
-        this.props.onSave(this.props.landId, this.state.newCubes)
+        await this.props.onSave(this.props.landId, this.state.newCubes)
+        alert("저장되었습니다")
     }
 
     renderColorPick = () => {
         return (
-            <div className="color-picker-wrapper">
-                <HexColorPicker color={this.state.color} onChange={(color) => this.setState({ color })} />
+            <div className="color-box">
+                <img className="color-index" src={window.location.origin + "/images/colorindex.png"} alt="color-index" />
+                <div className="color-picker-wrapper">
+                    <HexColorPicker color={this.state.color} onChange={(color) => this.setState({ color })} />
+                </div>
+            </div>
+        )
+    }
+
+    renderExtraButton = () => {
+        return (
+            <div className="extra-button-container">
+                <div className="circle-button">
+                    <img src={window.location.origin + "/images/camera.svg"} alt="camera" />
+                </div>
+                <div className="circle-button">
+                    <img src={window.location.origin + "/images/share.svg"} alt="share" />
+                </div>
             </div>
         )
     }
@@ -222,17 +250,18 @@ class Three extends React.Component {
         return (
             <React.Fragment>
                 <div className="left-tool-box">
+                    {this.renderCoinBox()}
+                    {this.renderColorPick()}
                     <div className="land-save-wrapper">
                         <CustomButton text="SAVE" onClick={this.onClick} />
                     </div>
-                    {this.renderColorPick()}
+                    {this.renderExtraButton()}
                 </div>
                 <div
                     className="land-container"
                     ref={(mount) => {
                         this.mount = mount
                     }}
-                    f
                 ></div>
             </React.Fragment>
         )
